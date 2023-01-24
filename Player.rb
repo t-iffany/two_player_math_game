@@ -9,6 +9,9 @@ class Player
 
 end
 
+
+# test code
+
 # player1 = Player.new("Player 1")
 # player2 = Player.new("Player 2")
 

@@ -25,8 +25,9 @@ class Game
     if question.correct_answer?(guess)
       puts "Correct!"
     else 
-      #@lives -= 1
+      @current_player.lives -= 1
       puts "Seriously? No!"
+      puts "#{current_player.name}: #{current_player.lives}/3"
     end
 
     # while (@lives > 0)

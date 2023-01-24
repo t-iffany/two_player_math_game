@@ -10,6 +10,10 @@ class Question
     "What does #{@firstNumber} plus #{@secondNumber} equal?"
   end
 
+  def correct_answer?(guess)
+    @answer == guess
+  end
+
 end
 
 # test code

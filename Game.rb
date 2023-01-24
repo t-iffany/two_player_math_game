@@ -1,55 +1,54 @@
+require './Player'
+require './Question'
+
 class Game
   
+  attr_accessor :current_player
+
   def initialize 
-    @question = questions.sample
-    @players = []
+    @player1 = Player.new("Player 1")
+    @player2 = Player.new("Player 2")
+    @current_player = nil
   end
 
-  def questions
-    [
-      ["What does 5 plus 3 equal?", 5+3],
-      ["What does 2 plus 6 equal?", 2+6]
-    ]
+  def play
+
+
+    @current_player = @player1
+
+    question = Question.new
+    #puts "----- NEW GAME -----"
+    puts "#{@current_player.name}: #{question.show_question}"
+
+    guess = gets.chomp.to_i
+
+    if question.correct_answer?(guess)
+      puts "Correct!"
+    else 
+      #@lives -= 1
+      puts "Seriously? No!"
+    end
+
+    # while (@lives > 0)
+    #   if current_player is this one, set to the other
+    #     puts new turn
+    #     set new question and display it
+    
   end
 
   def make_guess
-
-    # if @lives == 0
-    #   puts "----- GAME OVER -----"
-    #   puts "Good bye!" 
-    # end    
-
-    if @lives > 0
-      guess = gets.chomp
-
-      # correct_guess = questions[0].last.to_s.include?(guess)
-
-      # if correct_guess 
-      #   puts "Correct"
-      # end
-       
-      if guess.include?(questions[0].last.to_s)
-        puts "Correct"
-      else
-        @lives -= 1
-        puts "Seriously? No!"
-        puts "Player 1: #{@lives}/3"
-      end
-    end
   end
 
-  def begin
-    #puts "----- NEW GAME -----"
-    puts "Player 1: #{questions[0].first}"
+  def new_turn
+  end
 
-    make_guess
-    
+  def game_over
   end
 
 end
 
 game = Game.new
 # puts game.questions
-game.begin
+game.play
 # game.make_guess
 

@@ -61,8 +61,10 @@ class Game
 
 end
 
-game = Game.new
+
+# test code
+# game = Game.new
 # puts game.questions
-game.play
+# game.play
 # game.make_guess
 
